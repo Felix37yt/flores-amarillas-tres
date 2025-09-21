@@ -25,10 +25,12 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
   position: absolute;
-  margin-bottom: 20%;
+  /* position further up the viewport — use bottom instead of margin-bottom for predictable placement */
+  bottom: 60vmin;
   z-index: 1;
   font-weight: bold;
   letter-spacing: 4px;
+  text-shadow: 0 0.4vmin 0.6vmin rgba(0,0,0,0.6);
 }
 
 @media only screen and (max-width: 600px) {
@@ -37,7 +39,8 @@ body {
   #lyrics {
     font-size: 14px;
     /* Reduce el tamaño del texto para dispositivos más pequeños */
-    margin-bottom: 530px;
+    /* place higher on small screens as well */
+    bottom: 70vmin;
     letter-spacing: 3px;
   }
 
