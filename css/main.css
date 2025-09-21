@@ -25,10 +25,13 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
   position: absolute;
-  margin-bottom: 20%;
+  top: 12vh;               /* <- mover hacia arriba cambiando este valor */
+  left: 50%;               /* centrar horizontalmente */
+  transform: translateX(-50%);
   z-index: 1;
   font-weight: bold;
   letter-spacing: 4px;
+  margin: 0;               /* eliminar margin-bottom inútil para absolute */
 }
 
 @media only screen and (max-width: 600px) {
