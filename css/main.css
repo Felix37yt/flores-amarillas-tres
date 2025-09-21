@@ -6,14 +6,6 @@
   box-sizing: border-box;
 }
 
-/* Respeta la preferencia de movimiento reducido */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
 :root {
   --dark-color: #000;
 }
@@ -33,15 +25,10 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
   position: absolute;
-  left: 50%;
-  top: 6vmin;
-  transform: translateX(-50%);
-  z-index: 9999;
+  margin-bottom: 20%;
+  z-index: 1;
   font-weight: bold;
   letter-spacing: 4px;
-  transition: opacity 0.4s ease-in-out;
-  text-align: center;
-  pointer-events: none;
 }
 
 @media only screen and (max-width: 600px) {
@@ -66,7 +53,6 @@ body {
   opacity: 0;
   animation: fadeIn 3s ease-in-out forwards;
   text-align: center;
-  transition: opacity 0.4s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -77,11 +63,6 @@ body {
   to {
     opacity: 1;
   }
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
 }
 
 .night {
@@ -876,7 +857,6 @@ body {
       transparent,
       var(--dark-color) 60%);
   -webkit-mask-image: linear-gradient(to top, transparent 30%, #079097 60%);
-  mask-image: linear-gradient(to top, transparent 30%, #079097 60%);
 }
 
 .flower__g-right--1 {
@@ -1122,8 +1102,14 @@ body {
       transparent,
       var(--dark-color)),
     linear-gradient(to bottom right, #159faa 50%, transparent 50%, transparent);
-  -webkit-mask-image: linear-gradient(to bottom right, #159faa 50%, transparent 50%, transparent);
-  mask-image: linear-gradient(to bottom right, #159faa 50%, transparent 50%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom right,
+      #159faa 50%,
+      transparent 50%,
+      transparent);
+  mask-image: linear-gradient(to bottom right,
+      #159faa 50%,
+      transparent 50%,
+      transparent);
 }
 
 .flower__g-fr {
@@ -1166,7 +1152,6 @@ body {
   border-top-left-radius: 100%;
   border-left: 2vmin solid #079097;
   -webkit-mask-image: linear-gradient(to top, transparent 25%, #079097 50%);
-  mask-image: linear-gradient(to top, transparent 25%, #079097 50%);
   position: relative;
   z-index: 1;
 }
@@ -1183,8 +1168,10 @@ body {
       transparent,
       var(--dark-color) 98%),
     linear-gradient(to bottom right, #23f0ff 45%, transparent 50%, transparent);
-  -webkit-mask-image: linear-gradient(135deg, #159faa 40%, transparent 50%, transparent);
-  mask-image: linear-gradient(135deg, #159faa 40%, transparent 50%, transparent);
+  -webkit-mask-image: linear-gradient(135deg,
+      #159faa 40%,
+      transparent 50%,
+      transparent);
 }
 
 .flower__g-fr__leaf--1 {
@@ -1333,8 +1320,9 @@ body {
 }
 
 .long-g--1 .leaf {
-  -webkit-mask-image: linear-gradient(to top, transparent 40%, #079097 80%);
-  mask-image: linear-gradient(to top, transparent 40%, #079097 80%);
+  -webkit-mask-image: linear-gradient(to top,
+      transparent 40%,
+      #079097 80%) !important;
 }
 
 .long-g--1 .leaf--1 {
@@ -1354,8 +1342,9 @@ body {
 
 .long-g--2 .leaf,
 .long-g--3 .leaf {
-  -webkit-mask-image: linear-gradient(to top, transparent 50%, #079097 80%);
-  mask-image: linear-gradient(to top, transparent 50%, #079097 80%);
+  -webkit-mask-image: linear-gradient(to top,
+      transparent 50%,
+      #079097 80%) !important;
 }
 
 .long-g--2 .leaf--1,
@@ -1370,8 +1359,9 @@ body {
 }
 
 .long-g--3 .leaf {
-  -webkit-mask-image: linear-gradient(to top, transparent 40%, #079097 80%);
-  mask-image: linear-gradient(to top, transparent 40%, #079097 80%);
+  -webkit-mask-image: linear-gradient(to top,
+      transparent 40%,
+      #079097 80%) !important;
 }
 
 .long-g--4 {
@@ -1382,8 +1372,9 @@ body {
 }
 
 .long-g--4 .leaf {
-  -webkit-mask-image: linear-gradient(to top, transparent 50%, #079097 80%);
-  mask-image: linear-gradient(to top, transparent 50%, #079097 80%);
+  -webkit-mask-image: linear-gradient(to top,
+      transparent 50%,
+      #079097 80%) !important;
 }
 
 .long-g--5 {
@@ -1419,8 +1410,9 @@ body {
   height: var(--h);
   border-top-left-radius: 100%;
   border-left: 2vmin solid var(--c);
-  -webkit-mask-image: linear-gradient(to top, transparent 20%, var(--dark-color));
-  mask-image: linear-gradient(to top, transparent 20%, var(--dark-color));
+  -webkit-mask-image: linear-gradient(to top,
+      transparent 20%,
+      var(--dark-color));
   transform-origin: bottom center;
 }
 
@@ -1535,53 +1527,6 @@ body {
   -webkit-animation: grow-ans 2s var(--d) backwards;
   animation: grow-ans 2s var(--d) backwards;
 }
-
-/* Utilidades para tiempos de animación usados en HTML (reemplazan estilos inline) */
-.d-1-2 { --d: 1.2s; }
-.d-2-4 { --d: 2.4s; }
-.d-2-8 { --d: 2.8s; }
-.d-3 { --d: 3s; }
-.d-3-2 { --d: 3.2s; }
-.d-3-4 { --d: 3.4s; }
-.d-3-5 { --d: 3.5s; }
-.d-3-6 { --d: 3.6s; }
-.d-3-8 { --d: 3.8s; }
-.d-4 { --d: 4s; }
-.d-4-2 { --d: 4.2s; }
-.d-4-4 { --d: 4.4s; }
-.d-4-6 { --d: 4.6s; }
-.d-4-8 { --d: 4.8s; }
-
-/* Ocultar el control nativo de audio y estilizar el botón personalizado */
-.visually-hidden-audio {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  border: 0;
-}
-
-.audio-controls {
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  z-index: 10000;
-}
-
-.play-pause {
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.15);
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.play-pause:focus { outline: 2px solid #39c6d6; }
 
 @-webkit-keyframes grow-ans {
   0% {
@@ -1852,3 +1797,58 @@ body {
 }
 
 /*# sourceMappingURL=main.css.map */
+
+
+/* Reset de estilos básicos */
+body,
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Media Queries para tamaños de pantalla diferentes */
+@media screen and (max-width: 600px) {
+
+  /* Estilos para pantallas pequeñas */
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+
+  /* Estilos para pantallas medianas */
+  h1 {
+    font-size: 1.8em;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+
+  /* Estilos para pantallas grandes */
+  h1 {
+    font-size: 2em;
+  }
+}
+
+/* Agregar más estilos según sea necesario */
